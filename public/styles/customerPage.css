@@ -1,0 +1,88 @@
+
+
+#main-body-container {
+    height: fit-content;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#products-container {
+    width: 80%;
+    height: 80vh;
+
+    background: rgb(227, 227, 227);
+
+    padding: 20px;
+
+    box-sizing: border-box;
+}
+
+.product {
+    width: 200px;
+    height: 300px;
+    min-height: fit-content;
+
+    background: white;
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-img {
+    background: url(/res/images/fresh-whole-chicken.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 90%;
+    height: 80%;
+    min-height: 80%;
+    transition: all;
+    transition-timing-function: ease;
+    transition-duration: 1s;
+}
+.product-img:hover {
+    background-size: 140%;
+}
+
+.product-details {
+    height: 100%;
+    width: 100%;
+    color: black;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.product-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.product-buttons .add-to-cart-btn,
+.product-buttons .order-now-btn {
+    margin: 2px;
+    font-size: 80%;
+    box-sizing: border-box;
+    padding: 2px 5px;
+    text-align: center;
+    cursor: pointer;
+    width: 95%;
+}
+
+.product-buttons .add-to-cart-btn {
+    background: black;
+    color: white;
+}
+
+.product-buttons .order-now-btn {
+    background: white;
+    color: black;
+    border: 1px solid black;
+}

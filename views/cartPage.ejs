@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+
+<body>
+    <%- include('partials/header.ejs') %>
+    <div id="cart-container">
+        <div id="update-cart">Update Cart</div>
+        <div id="cart-products-container">
+            <ul>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const cartProductsContainerList = document.querySelector('#cart-products-container').querySelector('ul');
+        const updateCart = document.querySelector('#update-cart');
+        updateCart.style.cursor = 'pointer';
+
+        updateCart.addEventListener('click', e => {
+            fetch('/retrievecart', { method: 'GET' })
+                .then(function (response) {
+                    if (response.ok) {
+                        console.log(response);
+                        console.log('click was recorded');
+                        return;
+                    }
+                    throw new Error('Request failed.');
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        });
+
+        function updateRender(cartProducts) {
+            cartProductsContainerList.innerHTML = '';
+            for (let prod of cartProducts) {
+                cartProductsContainerList.innerHTML += `<li>${prod}</li>`;
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

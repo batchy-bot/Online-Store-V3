@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/customerPage.css">
+    <title>Customer</title>
+</head>
+
+<body>
+    <%- include('partials/header.ejs') %>
+        <div id="main-body-container">
+            <div id="products-categ">
+                <h4>Available Products</h4>
+            </div>
+            <div id="products-container">
+                <div class="product">
+                    <div class="product-img"></div>
+                    <div class="product-details">
+                        <h6>P 170.00</h6>
+                        <h4>Dressed Chicken</h4>
+                        <div class="product-buttons">
+                            <div class="add-to-cart-btn">Add to Cart</div>
+                            <div class="order-now-btn">Order Now</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const cartBtn = document.querySelector('#cart-btn');
+
+            cartBtn.addEventListener('click', e => {
+                fetch('/cart', { method: 'GET' })
+                    .then(res => res.json(res));
+            });
+        </script>
+</body>
+
+</html>
